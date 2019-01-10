@@ -1,6 +1,36 @@
 # Setting File Permissions From The Terminal
 by: gunnar pope 8/25/18
 
+## Default Permissions Settings
+Change the default permissions setting in the folder `/etc/login.defs`. Set the UMASK variable to 027 or 077 for improved security. I found this by running a penetration test from running the [Lynis](https://github.com/CISOfy/lynis) security audit.
+
+
+```
+
+#
+# Login configuration initializations:
+#
+#	UMASK		Default "umask" value.
+#
+# UMASK is the default umask value for pam_umask and is used by
+# useradd and newusers to set the mode of the new home directories.
+# 022 is the "historical" value in Debian for UMASK
+# 027, or even 077, could be considered better for privacy
+# There is no One True Answer here : each sysadmin must make up his/her
+# mind.
+#
+# If USERGROUPS_ENAB is set to "yes", that will modify this UMASK default value
+# for private user groups, i. e. the uid is the same as gid, and username is
+# the same as the primary group name: for these, the user permissions will be
+# used as group permissions, e. g. 022 will become 002.
+#
+# Prefix these values with "0" to get octal, "0x" to get hexadecimal.
+#
+UMASK		027
+
+
+```
+
 ## Changing Directory Permission Settings Using `setfacl`
 Change the default file permission settings for all folders and files within a directory. This answer found on: [stackechange](https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory)
 
