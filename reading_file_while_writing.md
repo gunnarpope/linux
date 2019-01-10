@@ -9,4 +9,4 @@ This command will redirects command stderr output to stdout.
 
 Then you can add `tee` to write to a file called `logfile` so you can capture the output for later.
 
-    command 2>&1 | tee logfile | less
+    $ command 2>&1 | tee logfile | less
