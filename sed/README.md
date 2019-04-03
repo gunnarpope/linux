@@ -25,3 +25,27 @@ Let's change the word 'god' to 'good' in the two text files below.
 		./file1.txt:1:Climb the mountain to get the good tidings.
 		./file2.txt:1:"good" is good.
 
+* Example: change the characters `[H]` to `[h]` throughout a bunch of specific `.tex` files
+
+    ~/repos/grand-finale/thesis $ grep -rnw chp/compression2019/ -e "\[H\]"
+		chp/compression2019/sec/introduction.tex:30:\begin{figure}[H]
+		chp/compression2019/sec/introduction.tex:105:\begin{figure}[H]
+		chp/compression2019/sec/methods.tex:5:\begin{figure}[H]
+		chp/compression2019/sec/methods.tex:15:\begin{figure}[H]
+		chp/compression2019/sec/methods.tex:53:% \begin{algorithm}[H]
+		chp/compression2019/sec/methods.tex:294:\begin{figure}[H]
+		chp/compression2019/sec/methods.tex:330:\begin{figure}[H]
+		chp/compression2019/sec/appendix.tex:9:\begin{figure}[H]
+		chp/compression2019/sec/appendix.tex:51:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:7:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:26:% \begin{figure}[H]
+		chp/compression2019/sec/results.tex:34:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:66:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:77:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:94:\begin{figure}[H]
+		chp/compression2019/sec/results.tex:101:\begin{figure}[H]
+
+		~/repos/grand-finale/thesis $ sed -i "s/\[H\]/\[h\]/g" chp/compression2019/sec/*.tex
+		~/repos/grand-finale/thesis $ grep -rnw chp/compression2019/ -e "\[H\]"
+		~/repos/grand-finale/thesis $ git status
+
