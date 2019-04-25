@@ -55,4 +55,4 @@ After the change is made, do the same search as before to make sure that no inst
 		~/repos/grand-finale/thesis $ grep -rnw chp/compression2019/ -e "\[H\]"
 		~/repos/grand-finale/thesis $
 
-Ok, cool. Looks like that make all the changes.
+Ok, cool. Looks like that made all the changes needed.
