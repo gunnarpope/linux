@@ -1,6 +1,7 @@
 
 # The Power of Git
 Special thanks to [Linus Torvalds](https://github.com/torvalds) for his gift of git.
+
 ## How to find the date a specific line of code changed using github
 
 
@@ -30,3 +31,36 @@ This will open the file log history using `less`, which allows you to navigate t
     +b &= \frac{1}{\tau_p} = \big(\frac{1}{\tau_1} + \frac{1}{\tau_3}\big)} \\
 
 And there you have it, this output shows the last time that the line of code holding `tau_p` was changed.
+
+## Make a branch the master branch 
+Checkout to the 
+```
+$ git checkout last-try 
+Switched to branch 'last-try'
+Your branch is up to date with 'origin/last-try'.
+
+$ git merge --strategy=ours master
+Merge made by the 'ours' strategy.
+
+$ git checkout master 
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+$ git merge last-try 
+Updating 9d20f66..ca461e1
+Fast-forward
+ appdata.py     |   8 +-
+ callbacks.py   |  63 +++-------
+ layout.py      |  10 +-
+ pyapi/pyapi.py |  90 ++++++++++++--
+ callbacks.py   | 287 ++++++++++++++++++++++++++++++++++++++++---
+ layout.py      |  19 ++-
+ files changed, 394 insertions(+), 94 deletions(-)
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 42 commits.
+  (use "git push" to publish your local commits)
+
+```
+	
